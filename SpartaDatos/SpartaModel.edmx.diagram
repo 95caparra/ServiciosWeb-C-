@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c2a3a06c5324da1bba3be7a2734e18f" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="SpartaModel.Asistencia" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpartaModel.Categoria" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpartaModel.ActividadEconomica" Width="1.5" PointX="5.25" PointY="23.25" />
+        <EntityTypeShape EntityType="SpartaModel.BibliotecaPregunta" Width="1.5" PointX="5.25" PointY="35.5" />
+        <EntityTypeShape EntityType="SpartaModel.CategoriaPremio" Width="1.5" PointX="5.25" PointY="41.875" />
+        <EntityTypeShape EntityType="SpartaModel.Causa" Width="1.5" PointX="6" PointY="30.625" />
+        <EntityTypeShape EntityType="SpartaModel.Ciudad" Width="1.5" PointX="5.25" PointY="19.625" />
+        <EntityTypeShape EntityType="SpartaModel.Cobertura" Width="1.5" PointX="7.5" PointY="2" />
+        <EntityTypeShape EntityType="SpartaModel.Departamento" Width="1.5" PointX="3" PointY="19.5" />
+        <EntityTypeShape EntityType="SpartaModel.DetalleParametro" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="SpartaModel.Direccion" Width="1.5" PointX="9.75" PointY="37.625" />
+        <EntityTypeShape EntityType="SpartaModel.Documento" Width="1.5" PointX="9.75" PointY="1.625" />
+        <EntityTypeShape EntityType="SpartaModel.DocumentosRelacionados" Width="1.5" PointX="10" PointY="49.625" />
+        <EntityTypeShape EntityType="SpartaModel.DocumentoUsuario" Width="1.5" PointX="12" PointY="11.75" />
+        <EntityTypeShape EntityType="SpartaModel.Funcionalidad" Width="1.5" PointX="10.5" PointY="65.375" />
+        <EntityTypeShape EntityType="SpartaModel.Inmueble_PYME" Width="1.5" PointX="10.25" PointY="58.625" />
+        <EntityTypeShape EntityType="SpartaModel.Insignia" Width="1.5" PointX="7.5" PointY="8.375" />
+        <EntityTypeShape EntityType="SpartaModel.Libro" Width="1.5" PointX="6" PointY="27.125" />
+        <EntityTypeShape EntityType="SpartaModel.Mascota" Width="1.5" PointX="10.25" PointY="55.875" />
+        <EntityTypeShape EntityType="SpartaModel.Nivel" Width="1.5" PointX="7.5" PointY="11.875" />
+        <EntityTypeShape EntityType="SpartaModel.Notificacion" Width="1.5" PointX="9.75" PointY="5.75" />
+        <EntityTypeShape EntityType="SpartaModel.Pais" Width="1.5" PointX="0.75" PointY="19.875" />
+        <EntityTypeShape EntityType="SpartaModel.Parametro" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="SpartaModel.ParticipanteReto" Width="1.5" PointX="9.75" PointY="45.75" />
+        <EntityTypeShape EntityType="SpartaModel.Persona" Width="1.5" PointX="7.5" PointY="16.125" />
+        <EntityTypeShape EntityType="SpartaModel.Poliza" Width="1.5" PointX="10.5" PointY="28" />
+        <EntityTypeShape EntityType="SpartaModel.PostVenta" Width="1.5" PointX="15" PointY="28.5" />
+        <EntityTypeShape EntityType="SpartaModel.Preliquidacion" Width="1.5" PointX="15" PointY="10.875" />
+        <EntityTypeShape EntityType="SpartaModel.Premio" Width="1.5" PointX="7.5" PointY="40.5" />
+        <EntityTypeShape EntityType="SpartaModel.Producto" Width="1.5" PointX="8.25" PointY="27.375" />
+        <EntityTypeShape EntityType="SpartaModel.Redencion" Width="1.5" PointX="9.75" PointY="23.375" />
+        <EntityTypeShape EntityType="SpartaModel.RespuestaPregunta" Width="1.5" PointX="7.5" PointY="45.625" />
+        <EntityTypeShape EntityType="SpartaModel.Reto" Width="1.5" PointX="7.5" PointY="33.75" />
+        <EntityTypeShape EntityType="SpartaModel.RetoUsuario" Width="1.5" PointX="9.75" PointY="19" />
+        <EntityTypeShape EntityType="SpartaModel.Riesgo" Width="1.5" PointX="12.5" PointY="32.25" />
+        <EntityTypeShape EntityType="SpartaModel.Rol" Width="1.5" PointX="7.5" PointY="5" />
+        <EntityTypeShape EntityType="SpartaModel.Sucursal" Width="1.5" PointX="3" PointY="16.5" />
+        <EntityTypeShape EntityType="SpartaModel.Tema" Width="1.5" PointX="12.25" PointY="24.5" />
+        <EntityTypeShape EntityType="SpartaModel.UnidadComercial" Width="1.5" PointX="5.25" PointY="16.5" />
+        <EntityTypeShape EntityType="SpartaModel.Usuario" Width="1.5" PointX="9.75" PointY="9.625" />
+        <EntityTypeShape EntityType="SpartaModel.Vehiculo" Width="1.5" PointX="10.25" PointY="52.875" />
+        <EntityTypeShape EntityType="SpartaModel.Venta" Width="1.5" PointX="12.75" PointY="28.5" />
+        <EntityTypeShape EntityType="SpartaModel.ContenidoReto" Width="1.5" PointX="9.75" PointY="34.125" />
+        <EntityTypeShape EntityType="SpartaModel.FuncionalidadPorRol" Width="1.5" PointX="12.75" PointY="5.25" />
+        <EntityTypeShape EntityType="SpartaModel.LogProceso" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SpartaModel.NotificacionUsuario" Width="1.5" PointX="12" PointY="8.875" />
+        <EntityTypeShape EntityType="SpartaModel.ParticipantePremio" Width="1.5" PointX="9.75" PointY="61.5" />
+        <EntityTypeShape EntityType="SpartaModel.PersonaPoliza" Width="1.5" PointX="12.75" PointY="16.625" />
+        <EntityTypeShape EntityType="SpartaModel.PersonaProducto" Width="1.5" PointX="12.75" PointY="19.5" />
+        <EntityTypeShape EntityType="SpartaModel.RepresentanteLegal" Width="1.5" PointX="9.75" PointY="42.5" />
+        <AssociationConnector Association="SpartaModel.FK_Persona_ActividadEconomica" />
+        <AssociationConnector Association="SpartaModel.FK_RespuestaPregunta_BibliotecaPregunta" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Categoria" />
+        <AssociationConnector Association="SpartaModel.FK_Premio_CategoriaPremio" />
+        <AssociationConnector Association="SpartaModel.FK_Ciudad_Departamento" />
+        <AssociationConnector Association="SpartaModel.FK_Persona_Ciudad" />
+        <AssociationConnector Association="SpartaModel.FK_Departamento_Pais" />
+        <AssociationConnector Association="SpartaModel.FK_DetalleParametro_Parametro" />
+        <AssociationConnector Association="SpartaModel.FK_Direccion_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_DocumentoUsuario_Documento" />
+        <AssociationConnector Association="SpartaModel.FK_Preliquidacion_Documento" />
+        <AssociationConnector Association="SpartaModel.FK_DocumentoUsuario_Usuario" />
+        <AssociationConnector Association="SpartaModel.FK_FuncionalidadPorRol_Funcionalidad" />
+        <AssociationConnector Association="SpartaModel.FK_Riesgo_Inmueble" />
+        <AssociationConnector Association="SpartaModel.FK_Riesgo_Mascota" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Nivel" />
+        <AssociationConnector Association="SpartaModel.FK_NotificacionUsuario_Notificacion" />
+        <AssociationConnector Association="SpartaModel.FK_ParticipantesReto_Reto" />
+        <AssociationConnector Association="SpartaModel.FK_Persona_UnidadComercial" />
+        <AssociationConnector Association="SpartaModel.FK_PersonaPoliza_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_PersonaProducto_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_Redencion_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_RepresentanteLegal_PersonaJuridica" />
+        <AssociationConnector Association="SpartaModel.FK_RepresentanteLegal_PersonaNatural" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Persona1" />
+        <AssociationConnector Association="SpartaModel.FK_Versus_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_PersonaPoliza_Poliza" />
+        <AssociationConnector Association="SpartaModel.FK_Poliza_Producto" />
+        <AssociationConnector Association="SpartaModel.FK_Ventas_Poliza" />
+        <AssociationConnector Association="SpartaModel.FK_PostVenta_Venta1" />
+        <AssociationConnector Association="SpartaModel.FK_Preliquidacion_Usuario" />
+        <AssociationConnector Association="SpartaModel.FK_ParticipantePremio_Premio" />
+        <AssociationConnector Association="SpartaModel.FK_Premio_Rol" />
+        <AssociationConnector Association="SpartaModel.FK_Redencion_Premio" />
+        <AssociationConnector Association="SpartaModel.FK_PersonaProducto_Producto" />
+        <AssociationConnector Association="SpartaModel.FK_Riesgo_Producto" />
+        <AssociationConnector Association="SpartaModel.FK_ContenidoReto_Reto1" />
+        <AssociationConnector Association="SpartaModel.FK_Reto_Rol" />
+        <AssociationConnector Association="SpartaModel.FK_Versus_Reto" />
+        <AssociationConnector Association="SpartaModel.FK_Riesgo_Vehiculo1" />
+        <AssociationConnector Association="SpartaModel.FK_FuncionalidadPorRol_Rol" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Rol" />
+        <AssociationConnector Association="SpartaModel.FK_UnidadComercial_Sucursal" />
+        <AssociationConnector Association="SpartaModel.FK_NotificacionUsuario_Usuario" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Usuario" />
+        <AssociationConnector Association="SpartaModel.AsistenciaProducto" />
+        <AssociationConnector Association="SpartaModel.CausaProducto" />
+        <AssociationConnector Association="SpartaModel.CoberturaProducto" />
+        <AssociationConnector Association="SpartaModel.DocumentoCobertura" />
+        <AssociationConnector Association="SpartaModel.DocumentoTema" />
+        <AssociationConnector Association="SpartaModel.InsigniaUsuario" />
+        <AssociationConnector Association="SpartaModel.LibroProducto" />
+        <AssociationConnector Association="SpartaModel.PreguntaLibro" />
+        <AssociationConnector Association="SpartaModel.PreguntaReto" />
+        <AssociationConnector Association="SpartaModel.TemaLibro" />
+        <AssociationConnector Association="SpartaModel.FK_Persona_ActividadEconomica" />
+        <AssociationConnector Association="SpartaModel.FK_RespuestaPregunta_BibliotecaPregunta" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Categoria" />
+        <AssociationConnector Association="SpartaModel.FK_Premio_CategoriaPremio" />
+        <AssociationConnector Association="SpartaModel.FK_Ciudad_Departamento" />
+        <AssociationConnector Association="SpartaModel.FK_Persona_Ciudad" />
+        <AssociationConnector Association="SpartaModel.FK_Departamento_Pais" />
+        <AssociationConnector Association="SpartaModel.FK_DetalleParametro_Parametro" />
+        <AssociationConnector Association="SpartaModel.FK_Direccion_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_DocumentoUsuario_Documento" />
+        <AssociationConnector Association="SpartaModel.FK_Preliquidacion_Documento" />
+        <AssociationConnector Association="SpartaModel.FK_DocumentoUsuario_Usuario" />
+        <AssociationConnector Association="SpartaModel.FK_FuncionalidadPorRol_Funcionalidad" />
+        <AssociationConnector Association="SpartaModel.FK_Riesgo_Inmueble" />
+        <AssociationConnector Association="SpartaModel.FK_Riesgo_Mascota" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Nivel" />
+        <AssociationConnector Association="SpartaModel.FK_NotificacionUsuario_Notificacion" />
+        <AssociationConnector Association="SpartaModel.FK_ParticipantesReto_Reto" />
+        <AssociationConnector Association="SpartaModel.FK_Persona_UnidadComercial" />
+        <AssociationConnector Association="SpartaModel.FK_PersonaPoliza_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_PersonaProducto_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_Redencion_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_RepresentanteLegal_PersonaJuridica" />
+        <AssociationConnector Association="SpartaModel.FK_RepresentanteLegal_PersonaNatural" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Persona1" />
+        <AssociationConnector Association="SpartaModel.FK_Versus_Persona" />
+        <AssociationConnector Association="SpartaModel.FK_PersonaPoliza_Poliza" />
+        <AssociationConnector Association="SpartaModel.FK_Poliza_Producto" />
+        <AssociationConnector Association="SpartaModel.FK_Ventas_Poliza" />
+        <AssociationConnector Association="SpartaModel.FK_PostVenta_Venta1" />
+        <AssociationConnector Association="SpartaModel.FK_Preliquidacion_Usuario" />
+        <AssociationConnector Association="SpartaModel.FK_ParticipantePremio_Premio" />
+        <AssociationConnector Association="SpartaModel.FK_Premio_Rol" />
+        <AssociationConnector Association="SpartaModel.FK_Redencion_Premio" />
+        <AssociationConnector Association="SpartaModel.FK_PersonaProducto_Producto" />
+        <AssociationConnector Association="SpartaModel.FK_Riesgo_Producto" />
+        <AssociationConnector Association="SpartaModel.FK_ContenidoReto_Reto1" />
+        <AssociationConnector Association="SpartaModel.FK_Reto_Rol" />
+        <AssociationConnector Association="SpartaModel.FK_Versus_Reto" />
+        <AssociationConnector Association="SpartaModel.FK_Riesgo_Vehiculo1" />
+        <AssociationConnector Association="SpartaModel.FK_FuncionalidadPorRol_Rol" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Rol" />
+        <AssociationConnector Association="SpartaModel.FK_UnidadComercial_Sucursal" />
+        <AssociationConnector Association="SpartaModel.FK_NotificacionUsuario_Usuario" />
+        <AssociationConnector Association="SpartaModel.FK_Usuario_Usuario" />
+        <AssociationConnector Association="SpartaModel.AsistenciaProducto" />
+        <AssociationConnector Association="SpartaModel.CausaProducto" />
+        <AssociationConnector Association="SpartaModel.CoberturaProducto" />
+        <AssociationConnector Association="SpartaModel.DocumentoCobertura" />
+        <AssociationConnector Association="SpartaModel.DocumentoTema" />
+        <AssociationConnector Association="SpartaModel.InsigniaUsuario" />
+        <AssociationConnector Association="SpartaModel.LibroProducto" />
+        <AssociationConnector Association="SpartaModel.PreguntaLibro" />
+        <AssociationConnector Association="SpartaModel.PreguntaReto" />
+        <AssociationConnector Association="SpartaModel.TemaLibro" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

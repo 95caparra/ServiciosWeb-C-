@@ -1,0 +1,34 @@
+﻿@*@{
+        Layout = null;
+    }*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+
+    <script src="~/script/angular-idle.min.js"></script>
+    <script src="~/script/AngularController/AngularHome.js"></script>*@
+    <noscript>
+        <META HTTP-EQUIV="Refresh" CONTENT="0;URL=../Jsinactivo.html">
+    </noscript>
+</head>
+<body ng-app="homeapp" ng-controller="HomeController">
+    <div>
+        <span>Email:</span><input type="text" name="email" ng-model="user.email" />
+        <br />
+        <br />
+        <span>Password:</span><input type="password" ng-model="user.contrasena" />
+        <br />
+        <br />
+        <input type="button" value="{{bntText}}" ng-click="login()" />
+        <span>{{mensaje}}</span>
+    </div>
+
+</body>
+</html>
