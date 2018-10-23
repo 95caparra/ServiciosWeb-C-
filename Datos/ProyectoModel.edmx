@@ -1,0 +1,1701 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProyectoGradoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ciudad">
+          <Key>
+            <PropertyRef Name="Id_ciudad" />
+          </Key>
+          <Property Name="Id_ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="clasificacion">
+          <Key>
+            <PropertyRef Name="id_clasificacion" />
+          </Key>
+          <Property Name="id_clasificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="n_identificacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo_documento" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" />
+          <Property Name="celular" Type="varchar" MaxLength="20" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" />
+          <Property Name="ciudad" Type="int" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="detalle_empleado">
+          <Key>
+            <PropertyRef Name="id_detalle_empleado" />
+          </Key>
+          <Property Name="evento_id_evento" Type="bigint" Nullable="false" />
+          <Property Name="empleado_id_empleado" Type="bigint" />
+          <Property Name="calificacion" Type="float" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+          <Property Name="id_detalle_empleado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="detalle_producto_suministro">
+          <Key>
+            <PropertyRef Name="id_producto_suministro" />
+          </Key>
+          <Property Name="id_producto" Type="int" Nullable="false" />
+          <Property Name="id_suministro" Type="int" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="estado" Type="int" />
+          <Property Name="id_producto_suministro" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="detalle_proveedor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proveedor_id_proveedor" Type="int" />
+          <Property Name="producto_id_suministro" Type="int" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="Id_empleado" />
+          </Key>
+          <Property Name="Id_empleado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="n_identificacion" Type="varchar" MaxLength="50" />
+          <Property Name="id_tipo_documento" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="empleado_id_rol" Type="int" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="barrio" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="estado_evento">
+          <Key>
+            <PropertyRef Name="id_estado_evento" />
+          </Key>
+          <Property Name="id_estado_evento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="evento">
+          <Key>
+            <PropertyRef Name="id_evento" />
+          </Key>
+          <Property Name="id_evento" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="solicitud_id_solicitud" Type="bigint" />
+          <Property Name="cliente_id_cliente" Type="bigint" />
+          <Property Name="tipo_evento" Type="int" />
+          <Property Name="id_lugar" Type="int" />
+          <Property Name="cantidad_personas" Type="int" />
+          <Property Name="cantidad_meseros" Type="int" />
+          <Property Name="hora_inicio" Type="datetime" />
+          <Property Name="hora_fin" Type="datetime" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="precio" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="observaciones" Type="varchar(max)" />
+          <Property Name="estado_evento" Type="int" />
+        </EntityType>
+        <EntityType Name="lugar">
+          <Key>
+            <PropertyRef Name="id_lugar" />
+          </Key>
+          <Property Name="id_lugar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="cantidad_persona_max" Type="int" />
+          <Property Name="direccion" Type="varchar" MaxLength="200" />
+          <Property Name="ubicacion" Type="varchar" MaxLength="200" />
+          <Property Name="contacto" Type="varchar" MaxLength="100" />
+          <Property Name="telefono_contacto" Type="varchar" MaxLength="50" />
+          <Property Name="id_ciudad" Type="int" />
+        </EntityType>
+        <EntityType Name="medida_producto">
+          <Key>
+            <PropertyRef Name="id_medida" />
+          </Key>
+          <Property Name="id_medida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="paquete">
+          <Key>
+            <PropertyRef Name="id_paquete" />
+          </Key>
+          <Property Name="id_paquete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="clasificacion_id_clasificacion" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="id_lugar" Type="int" />
+          <Property Name="cantidad_personas" Type="int" />
+          <Property Name="precio" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="pdf" Type="varchar" MaxLength="50" />
+          <Property Name="foto" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="pedido">
+          <Key>
+            <PropertyRef Name="id_pedido" />
+          </Key>
+          <Property Name="id_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="producto_id_producto" Type="int" />
+          <Property Name="proveedor_id_proveedor" Type="int" />
+          <Property Name="fecha_pedido" Type="datetime" />
+          <Property Name="cantidad" Type="varchar" MaxLength="20" />
+          <Property Name="id_medida_producto" Type="int" />
+          <Property Name="observaciones" Type="varchar" MaxLength="150" />
+          <Property Name="fecha_sugerida" Type="varchar" MaxLength="150" />
+          <Property Name="estado" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="foto" Type="varchar" MaxLength="50" />
+          <Property Name="tipo" Type="int" />
+          <Property Name="cantidad_minima" Type="int" />
+          <Property Name="medida" Type="int" />
+          <Property Name="precio_unidad" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="observaciones" Type="varchar(max)" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="proveedor">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="razon_social" Type="varchar" MaxLength="50" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="solicitud">
+          <Key>
+            <PropertyRef Name="id_solicitud" />
+          </Key>
+          <Property Name="id_solicitud" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="cantidad_personas" Type="int" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="id_tipo_evento" Type="int" />
+          <Property Name="hora" Type="varchar" MaxLength="50" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="observaciones" Type="varchar" MaxLength="150" />
+          <Property Name="estado" Type="varchar" MaxLength="10" />
+          <Property Name="visto" Type="bit" />
+        </EntityType>
+        <EntityType Name="suministro">
+          <Key>
+            <PropertyRef Name="id_suministro" />
+          </Key>
+          <Property Name="id_suministro" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="foto" Type="nchar" MaxLength="10" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="cantidad_minima" Type="int" />
+          <Property Name="medida" Type="int" />
+          <Property Name="precio_unidad" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="observaciones" Type="varchar" MaxLength="200" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_documento">
+          <Key>
+            <PropertyRef Name="id_tipo_documento" />
+          </Key>
+          <Property Name="id_tipo_documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion_documento" Type="varchar" MaxLength="50" />
+          <Property Name="abreviatura" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="tipo_evento">
+          <Key>
+            <PropertyRef Name="id_tipo_evento" />
+          </Key>
+          <Property Name="id_tipo_evento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_producto">
+          <Key>
+            <PropertyRef Name="id_tipo_producto" />
+          </Key>
+          <Property Name="id_tipo_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empleado_id_empleado" Type="bigint" />
+          <Property Name="usuario" Type="varchar" MaxLength="200" />
+          <Property Name="contrasenia" Type="varchar" MaxLength="200" />
+          <Property Name="estado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_cliente_ToCiudad">
+          <End Role="ciudad" Type="Self.ciudad" Multiplicity="0..1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ciudad">
+              <PropertyRef Name="Id_ciudad" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cliente_ToTipoDocumento">
+          <End Role="tipo_documento" Type="Self.tipo_documento" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_documento">
+              <PropertyRef Name="id_tipo_documento" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="tipo_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_empleado_ToEmpleado">
+          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+          <End Role="detalle_empleado" Type="Self.detalle_empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="Id_empleado" />
+            </Principal>
+            <Dependent Role="detalle_empleado">
+              <PropertyRef Name="empleado_id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_empleado_ToEvento">
+          <End Role="evento" Type="Self.evento" Multiplicity="1" />
+          <End Role="detalle_empleado" Type="Self.detalle_empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="evento">
+              <PropertyRef Name="id_evento" />
+            </Principal>
+            <Dependent Role="detalle_empleado">
+              <PropertyRef Name="evento_id_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_producto_suministro_ToProducto">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="detalle_producto_suministro" Type="Self.detalle_producto_suministro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="detalle_producto_suministro">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_producto_suministro_ToSuministro">
+          <End Role="suministro" Type="Self.suministro" Multiplicity="0..1" />
+          <End Role="detalle_producto_suministro" Type="Self.detalle_producto_suministro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suministro">
+              <PropertyRef Name="id_suministro" />
+            </Principal>
+            <Dependent Role="detalle_producto_suministro">
+              <PropertyRef Name="id_suministro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_proveedor_ToProveedor">
+          <End Role="proveedor" Type="Self.proveedor" Multiplicity="0..1" />
+          <End Role="detalle_proveedor" Type="Self.detalle_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="detalle_proveedor">
+              <PropertyRef Name="proveedor_id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_proveedor_ToSuministro">
+          <End Role="suministro" Type="Self.suministro" Multiplicity="0..1" />
+          <End Role="detalle_proveedor" Type="Self.detalle_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suministro">
+              <PropertyRef Name="id_suministro" />
+            </Principal>
+            <Dependent Role="detalle_proveedor">
+              <PropertyRef Name="producto_id_suministro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empleado_ToRol">
+          <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="empleado_id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empleado_ToTipoDocumento">
+          <End Role="tipo_documento" Type="Self.tipo_documento" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_documento">
+              <PropertyRef Name="id_tipo_documento" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="id_tipo_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToCliente">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="cliente_id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToEstadoEvento">
+          <End Role="estado_evento" Type="Self.estado_evento" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_evento">
+              <PropertyRef Name="id_estado_evento" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="estado_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToLugar">
+          <End Role="lugar" Type="Self.lugar" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lugar">
+              <PropertyRef Name="id_lugar" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="id_lugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToSolicitud">
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitud">
+              <PropertyRef Name="id_solicitud" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="solicitud_id_solicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToTipoEvento">
+          <End Role="tipo_evento" Type="Self.tipo_evento" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_evento">
+              <PropertyRef Name="id_tipo_evento" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="tipo_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lugar_ToCiudad">
+          <End Role="ciudad" Type="Self.ciudad" Multiplicity="0..1" />
+          <End Role="lugar" Type="Self.lugar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ciudad">
+              <PropertyRef Name="Id_ciudad" />
+            </Principal>
+            <Dependent Role="lugar">
+              <PropertyRef Name="id_ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paquete_ToClasificacion">
+          <End Role="clasificacion" Type="Self.clasificacion" Multiplicity="0..1" />
+          <End Role="paquete" Type="Self.paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clasificacion">
+              <PropertyRef Name="id_clasificacion" />
+            </Principal>
+            <Dependent Role="paquete">
+              <PropertyRef Name="clasificacion_id_clasificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paquete_ToLugar">
+          <End Role="lugar" Type="Self.lugar" Multiplicity="0..1" />
+          <End Role="paquete" Type="Self.paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lugar">
+              <PropertyRef Name="id_lugar" />
+            </Principal>
+            <Dependent Role="paquete">
+              <PropertyRef Name="id_lugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pedido_ToMedidaProducto">
+          <End Role="medida_producto" Type="Self.medida_producto" Multiplicity="0..1" />
+          <End Role="pedido" Type="Self.pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medida_producto">
+              <PropertyRef Name="id_medida" />
+            </Principal>
+            <Dependent Role="pedido">
+              <PropertyRef Name="id_medida_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pedido_ToProducto">
+          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+          <End Role="pedido" Type="Self.pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="pedido">
+              <PropertyRef Name="producto_id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pedido_ToProveedor">
+          <End Role="proveedor" Type="Self.proveedor" Multiplicity="0..1" />
+          <End Role="pedido" Type="Self.pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="pedido">
+              <PropertyRef Name="proveedor_id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_ToMedidaProducto">
+          <End Role="medida_producto" Type="Self.medida_producto" Multiplicity="0..1" />
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medida_producto">
+              <PropertyRef Name="id_medida" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="medida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_ToTipoProducto">
+          <End Role="tipo_producto" Type="Self.tipo_producto" Multiplicity="0..1" />
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_producto">
+              <PropertyRef Name="id_tipo_producto" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitud_ToTipoEvento">
+          <End Role="tipo_evento" Type="Self.tipo_evento" Multiplicity="0..1" />
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_evento">
+              <PropertyRef Name="id_tipo_evento" />
+            </Principal>
+            <Dependent Role="solicitud">
+              <PropertyRef Name="id_tipo_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_suministro_ToMedidaProducto">
+          <End Role="medida_producto" Type="Self.medida_producto" Multiplicity="0..1" />
+          <End Role="suministro" Type="Self.suministro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medida_producto">
+              <PropertyRef Name="id_medida" />
+            </Principal>
+            <Dependent Role="suministro">
+              <PropertyRef Name="medida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_ToEmpleado">
+          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="Id_empleado" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="empleado_id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProyectoGradoModelStoreContainer">
+          <EntitySet Name="ciudad" EntityType="Self.ciudad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clasificacion" EntityType="Self.clasificacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalle_empleado" EntityType="Self.detalle_empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalle_producto_suministro" EntityType="Self.detalle_producto_suministro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalle_proveedor" EntityType="Self.detalle_proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_evento" EntityType="Self.estado_evento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="evento" EntityType="Self.evento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lugar" EntityType="Self.lugar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="medida_producto" EntityType="Self.medida_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paquete" EntityType="Self.paquete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedido" EntityType="Self.pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proveedor" EntityType="Self.proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="solicitud" EntityType="Self.solicitud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suministro" EntityType="Self.suministro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_documento" EntityType="Self.tipo_documento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_evento" EntityType="Self.tipo_evento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_producto" EntityType="Self.tipo_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_cliente_ToCiudad" Association="Self.FK_cliente_ToCiudad">
+            <End Role="ciudad" EntitySet="ciudad" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cliente_ToTipoDocumento" Association="Self.FK_cliente_ToTipoDocumento">
+            <End Role="tipo_documento" EntitySet="tipo_documento" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_empleado_ToEmpleado" Association="Self.FK_detalle_empleado_ToEmpleado">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="detalle_empleado" EntitySet="detalle_empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_empleado_ToEvento" Association="Self.FK_detalle_empleado_ToEvento">
+            <End Role="evento" EntitySet="evento" />
+            <End Role="detalle_empleado" EntitySet="detalle_empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_producto_suministro_ToProducto" Association="Self.FK_detalle_producto_suministro_ToProducto">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="detalle_producto_suministro" EntitySet="detalle_producto_suministro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_producto_suministro_ToSuministro" Association="Self.FK_detalle_producto_suministro_ToSuministro">
+            <End Role="suministro" EntitySet="suministro" />
+            <End Role="detalle_producto_suministro" EntitySet="detalle_producto_suministro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_proveedor_ToProveedor" Association="Self.FK_detalle_proveedor_ToProveedor">
+            <End Role="proveedor" EntitySet="proveedor" />
+            <End Role="detalle_proveedor" EntitySet="detalle_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_proveedor_ToSuministro" Association="Self.FK_detalle_proveedor_ToSuministro">
+            <End Role="suministro" EntitySet="suministro" />
+            <End Role="detalle_proveedor" EntitySet="detalle_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empleado_ToRol" Association="Self.FK_empleado_ToRol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empleado_ToTipoDocumento" Association="Self.FK_empleado_ToTipoDocumento">
+            <End Role="tipo_documento" EntitySet="tipo_documento" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToCliente" Association="Self.FK_evento_ToCliente">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToEstadoEvento" Association="Self.FK_evento_ToEstadoEvento">
+            <End Role="estado_evento" EntitySet="estado_evento" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToLugar" Association="Self.FK_evento_ToLugar">
+            <End Role="lugar" EntitySet="lugar" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToSolicitud" Association="Self.FK_evento_ToSolicitud">
+            <End Role="solicitud" EntitySet="solicitud" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToTipoEvento" Association="Self.FK_evento_ToTipoEvento">
+            <End Role="tipo_evento" EntitySet="tipo_evento" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lugar_ToCiudad" Association="Self.FK_lugar_ToCiudad">
+            <End Role="ciudad" EntitySet="ciudad" />
+            <End Role="lugar" EntitySet="lugar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paquete_ToClasificacion" Association="Self.FK_paquete_ToClasificacion">
+            <End Role="clasificacion" EntitySet="clasificacion" />
+            <End Role="paquete" EntitySet="paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paquete_ToLugar" Association="Self.FK_paquete_ToLugar">
+            <End Role="lugar" EntitySet="lugar" />
+            <End Role="paquete" EntitySet="paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pedido_ToMedidaProducto" Association="Self.FK_pedido_ToMedidaProducto">
+            <End Role="medida_producto" EntitySet="medida_producto" />
+            <End Role="pedido" EntitySet="pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pedido_ToProducto" Association="Self.FK_pedido_ToProducto">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="pedido" EntitySet="pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pedido_ToProveedor" Association="Self.FK_pedido_ToProveedor">
+            <End Role="proveedor" EntitySet="proveedor" />
+            <End Role="pedido" EntitySet="pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_ToMedidaProducto" Association="Self.FK_producto_ToMedidaProducto">
+            <End Role="medida_producto" EntitySet="medida_producto" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_ToTipoProducto" Association="Self.FK_producto_ToTipoProducto">
+            <End Role="tipo_producto" EntitySet="tipo_producto" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitud_ToTipoEvento" Association="Self.FK_solicitud_ToTipoEvento">
+            <End Role="tipo_evento" EntitySet="tipo_evento" />
+            <End Role="solicitud" EntitySet="solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_suministro_ToMedidaProducto" Association="Self.FK_suministro_ToMedidaProducto">
+            <End Role="medida_producto" EntitySet="medida_producto" />
+            <End Role="suministro" EntitySet="suministro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_ToEmpleado" Association="Self.FK_usuario_ToEmpleado">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProyectoGradoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ciudad">
+          <Key>
+            <PropertyRef Name="Id_ciudad" />
+          </Key>
+          <Property Name="Id_ciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="clasificacion">
+          <Key>
+            <PropertyRef Name="id_clasificacion" />
+          </Key>
+          <Property Name="id_clasificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="Int64" Nullable="false" />
+          <Property Name="n_identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_documento" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="celular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ciudad" Type="Int32" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ciudad1" Relationship="Self.FK_cliente_ToCiudad" FromRole="cliente" ToRole="ciudad" />
+          <NavigationProperty Name="tipo_documento1" Relationship="Self.FK_cliente_ToTipoDocumento" FromRole="cliente" ToRole="tipo_documento" />
+        </EntityType>
+        <EntityType Name="detalle_empleado">
+          <Key>
+            <PropertyRef Name="id_detalle_empleado" />
+          </Key>
+          <Property Name="evento_id_evento" Type="Int64" Nullable="false" />
+          <Property Name="empleado_id_empleado" Type="Int64" />
+          <Property Name="calificacion" Type="Double" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_detalle_empleado" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="empleado" Relationship="Self.FK_detalle_empleado_ToEmpleado" FromRole="detalle_empleado" ToRole="empleado" />
+        </EntityType>
+        <EntityType Name="detalle_producto_suministro">
+          <Key>
+            <PropertyRef Name="id_producto_suministro" />
+          </Key>
+          <Property Name="id_producto" Type="Int32" Nullable="false" />
+          <Property Name="id_suministro" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="id_producto_suministro" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_detalle_producto_suministro_ToProducto" FromRole="detalle_producto_suministro" ToRole="producto" />
+          <NavigationProperty Name="suministro" Relationship="Self.FK_detalle_producto_suministro_ToSuministro" FromRole="detalle_producto_suministro" ToRole="suministro" />
+        </EntityType>
+        <EntityType Name="detalle_proveedor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="proveedor_id_proveedor" Type="Int32" />
+          <Property Name="producto_id_suministro" Type="Int32" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="proveedor" Relationship="Self.FK_detalle_proveedor_ToProveedor" FromRole="detalle_proveedor" ToRole="proveedor" />
+          <NavigationProperty Name="suministro" Relationship="Self.FK_detalle_proveedor_ToSuministro" FromRole="detalle_proveedor" ToRole="suministro" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="Id_empleado" />
+          </Key>
+          <Property Name="Id_empleado" Type="Int64" Nullable="false" />
+          <Property Name="n_identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_documento" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="empleado_id_rol" Type="Int32" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="barrio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="rol" Relationship="Self.FK_empleado_ToRol" FromRole="empleado" ToRole="rol" />
+          <NavigationProperty Name="tipo_documento" Relationship="Self.FK_empleado_ToTipoDocumento" FromRole="empleado" ToRole="tipo_documento" />
+        </EntityType>
+        <EntityType Name="estado_evento">
+          <Key>
+            <PropertyRef Name="id_estado_evento" />
+          </Key>
+          <Property Name="id_estado_evento" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="evento">
+          <Key>
+            <PropertyRef Name="id_evento" />
+          </Key>
+          <Property Name="id_evento" Type="Int64" Nullable="false" />
+          <Property Name="solicitud_id_solicitud" Type="Int64" />
+          <Property Name="cliente_id_cliente" Type="Int64" />
+          <Property Name="tipo_evento" Type="Int32" />
+          <Property Name="id_lugar" Type="Int32" />
+          <Property Name="cantidad_personas" Type="Int32" />
+          <Property Name="cantidad_meseros" Type="Int32" />
+          <Property Name="hora_inicio" Type="DateTime" Precision="3" />
+          <Property Name="hora_fin" Type="DateTime" Precision="3" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="precio" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="estado_evento" Type="Int32" />
+          <NavigationProperty Name="cliente" Relationship="Self.FK_evento_ToCliente" FromRole="evento" ToRole="cliente" />
+          <NavigationProperty Name="estado_evento1" Relationship="Self.FK_evento_ToEstadoEvento" FromRole="evento" ToRole="estado_evento" />
+          <NavigationProperty Name="lugar" Relationship="Self.FK_evento_ToLugar" FromRole="evento" ToRole="lugar" />
+          <NavigationProperty Name="solicitud" Relationship="Self.FK_evento_ToSolicitud" FromRole="evento" ToRole="solicitud" />
+          <NavigationProperty Name="tipo_evento1" Relationship="Self.FK_evento_ToTipoEvento" FromRole="evento" ToRole="tipo_evento" />
+        </EntityType>
+        <EntityType Name="lugar">
+          <Key>
+            <PropertyRef Name="id_lugar" />
+          </Key>
+          <Property Name="id_lugar" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad_persona_max" Type="Int32" />
+          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ubicacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_ciudad" Type="Int32" />
+          <NavigationProperty Name="ciudad" Relationship="Self.FK_lugar_ToCiudad" FromRole="lugar" ToRole="ciudad" />
+        </EntityType>
+        <EntityType Name="medida_producto">
+          <Key>
+            <PropertyRef Name="id_medida" />
+          </Key>
+          <Property Name="id_medida" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="pedido" Relationship="ProyectoGradoModel.FK_pedido_ToMedidaProducto" FromRole="medida_producto" ToRole="pedido" />
+        </EntityType>
+        <EntityType Name="paquete">
+          <Key>
+            <PropertyRef Name="id_paquete" />
+          </Key>
+          <Property Name="id_paquete" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="clasificacion_id_clasificacion" Type="Int32" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="id_lugar" Type="Int32" />
+          <Property Name="cantidad_personas" Type="Int32" />
+          <Property Name="precio" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="pdf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="clasificacion" Relationship="Self.FK_paquete_ToClasificacion" FromRole="paquete" ToRole="clasificacion" />
+          <NavigationProperty Name="lugar" Relationship="Self.FK_paquete_ToLugar" FromRole="paquete" ToRole="lugar" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="Int32" />
+          <Property Name="cantidad_minima" Type="Int32" />
+          <Property Name="medida" Type="Int32" />
+          <Property Name="precio_unidad" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="medida_producto" Relationship="Self.FK_producto_ToMedidaProducto" FromRole="producto" ToRole="medida_producto" />
+          <NavigationProperty Name="tipo_producto" Relationship="Self.FK_producto_ToTipoProducto" FromRole="producto" ToRole="tipo_producto" />
+        </EntityType>
+        <EntityType Name="proveedor">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="Int32" Nullable="false" />
+          <Property Name="razon_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="solicitud">
+          <Key>
+            <PropertyRef Name="id_solicitud" />
+          </Key>
+          <Property Name="id_solicitud" Type="Int64" Nullable="false" />
+          <Property Name="nombre_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad_personas" Type="Int32" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_evento" Type="Int32" />
+          <Property Name="hora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="observaciones" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="visto" Type="Boolean" />
+          <NavigationProperty Name="tipo_evento" Relationship="Self.FK_solicitud_ToTipoEvento" FromRole="solicitud" ToRole="tipo_evento" />
+        </EntityType>
+        <EntityType Name="suministro">
+          <Key>
+            <PropertyRef Name="id_suministro" />
+          </Key>
+          <Property Name="id_suministro" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="foto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="cantidad_minima" Type="Int32" />
+          <Property Name="medida" Type="Int32" />
+          <Property Name="precio_unidad" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="medida_producto" Relationship="Self.FK_suministro_ToMedidaProducto" FromRole="suministro" ToRole="medida_producto" />
+        </EntityType>
+        <EntityType Name="tipo_documento">
+          <Key>
+            <PropertyRef Name="id_tipo_documento" />
+          </Key>
+          <Property Name="id_tipo_documento" Type="Int32" Nullable="false" />
+          <Property Name="descripcion_documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="abreviatura" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tipo_evento">
+          <Key>
+            <PropertyRef Name="id_tipo_evento" />
+          </Key>
+          <Property Name="id_tipo_evento" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tipo_producto">
+          <Key>
+            <PropertyRef Name="id_tipo_producto" />
+          </Key>
+          <Property Name="id_tipo_producto" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="empleado_id_empleado" Type="Int64" />
+          <Property Name="usuario1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="contrasenia" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="empleado" Relationship="Self.FK_usuario_ToEmpleado" FromRole="usuario" ToRole="empleado" />
+        </EntityType>
+        <Association Name="FK_cliente_ToCiudad">
+          <End Role="ciudad" Type="Self.ciudad" Multiplicity="0..1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ciudad">
+              <PropertyRef Name="Id_ciudad" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lugar_ToCiudad">
+          <End Role="ciudad" Type="Self.ciudad" Multiplicity="0..1" />
+          <End Role="lugar" Type="Self.lugar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ciudad">
+              <PropertyRef Name="Id_ciudad" />
+            </Principal>
+            <Dependent Role="lugar">
+              <PropertyRef Name="id_ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paquete_ToClasificacion">
+          <End Role="clasificacion" Type="Self.clasificacion" Multiplicity="0..1" />
+          <End Role="paquete" Type="Self.paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clasificacion">
+              <PropertyRef Name="id_clasificacion" />
+            </Principal>
+            <Dependent Role="paquete">
+              <PropertyRef Name="clasificacion_id_clasificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cliente_ToTipoDocumento">
+          <End Role="tipo_documento" Type="Self.tipo_documento" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_documento">
+              <PropertyRef Name="id_tipo_documento" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="tipo_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToCliente">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="cliente_id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_empleado_ToEmpleado">
+          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+          <End Role="detalle_empleado" Type="Self.detalle_empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="Id_empleado" />
+            </Principal>
+            <Dependent Role="detalle_empleado">
+              <PropertyRef Name="empleado_id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_empleado_ToEvento">
+          <End Role="evento" Type="Self.evento" Multiplicity="1" />
+          <End Role="detalle_empleado" Type="Self.detalle_empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="evento">
+              <PropertyRef Name="id_evento" />
+            </Principal>
+            <Dependent Role="detalle_empleado">
+              <PropertyRef Name="evento_id_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_producto_suministro_ToProducto">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="detalle_producto_suministro" Type="Self.detalle_producto_suministro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="detalle_producto_suministro">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_producto_suministro_ToSuministro">
+          <End Role="suministro" Type="Self.suministro" Multiplicity="0..1" />
+          <End Role="detalle_producto_suministro" Type="Self.detalle_producto_suministro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suministro">
+              <PropertyRef Name="id_suministro" />
+            </Principal>
+            <Dependent Role="detalle_producto_suministro">
+              <PropertyRef Name="id_suministro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_proveedor_ToProveedor">
+          <End Role="proveedor" Type="Self.proveedor" Multiplicity="0..1" />
+          <End Role="detalle_proveedor" Type="Self.detalle_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="detalle_proveedor">
+              <PropertyRef Name="proveedor_id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_proveedor_ToSuministro">
+          <End Role="suministro" Type="Self.suministro" Multiplicity="0..1" />
+          <End Role="detalle_proveedor" Type="Self.detalle_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suministro">
+              <PropertyRef Name="id_suministro" />
+            </Principal>
+            <Dependent Role="detalle_proveedor">
+              <PropertyRef Name="producto_id_suministro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empleado_ToRol">
+          <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="empleado_id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empleado_ToTipoDocumento">
+          <End Role="tipo_documento" Type="Self.tipo_documento" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_documento">
+              <PropertyRef Name="id_tipo_documento" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="id_tipo_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_ToEmpleado">
+          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="Id_empleado" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="empleado_id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToEstadoEvento">
+          <End Role="estado_evento" Type="Self.estado_evento" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_evento">
+              <PropertyRef Name="id_estado_evento" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="estado_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToLugar">
+          <End Role="lugar" Type="Self.lugar" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lugar">
+              <PropertyRef Name="id_lugar" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="id_lugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToSolicitud">
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitud">
+              <PropertyRef Name="id_solicitud" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="solicitud_id_solicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_evento_ToTipoEvento">
+          <End Role="tipo_evento" Type="Self.tipo_evento" Multiplicity="0..1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_evento">
+              <PropertyRef Name="id_tipo_evento" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="tipo_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paquete_ToLugar">
+          <End Role="lugar" Type="Self.lugar" Multiplicity="0..1" />
+          <End Role="paquete" Type="Self.paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lugar">
+              <PropertyRef Name="id_lugar" />
+            </Principal>
+            <Dependent Role="paquete">
+              <PropertyRef Name="id_lugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_ToMedidaProducto">
+          <End Role="medida_producto" Type="Self.medida_producto" Multiplicity="0..1" />
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medida_producto">
+              <PropertyRef Name="id_medida" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="medida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_suministro_ToMedidaProducto">
+          <End Role="medida_producto" Type="Self.medida_producto" Multiplicity="0..1" />
+          <End Role="suministro" Type="Self.suministro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medida_producto">
+              <PropertyRef Name="id_medida" />
+            </Principal>
+            <Dependent Role="suministro">
+              <PropertyRef Name="medida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_ToTipoProducto">
+          <End Role="tipo_producto" Type="Self.tipo_producto" Multiplicity="0..1" />
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_producto">
+              <PropertyRef Name="id_tipo_producto" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitud_ToTipoEvento">
+          <End Role="tipo_evento" Type="Self.tipo_evento" Multiplicity="0..1" />
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_evento">
+              <PropertyRef Name="id_tipo_evento" />
+            </Principal>
+            <Dependent Role="solicitud">
+              <PropertyRef Name="id_tipo_evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProyectoGradoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ciudad" EntityType="Self.ciudad" />
+          <EntitySet Name="clasificacion" EntityType="Self.clasificacion" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="detalle_empleado" EntityType="Self.detalle_empleado" />
+          <EntitySet Name="detalle_producto_suministro" EntityType="Self.detalle_producto_suministro" />
+          <EntitySet Name="detalle_proveedor" EntityType="Self.detalle_proveedor" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" />
+          <EntitySet Name="estado_evento" EntityType="Self.estado_evento" />
+          <EntitySet Name="evento" EntityType="Self.evento" />
+          <EntitySet Name="lugar" EntityType="Self.lugar" />
+          <EntitySet Name="medida_producto" EntityType="Self.medida_producto" />
+          <EntitySet Name="paquete" EntityType="Self.paquete" />
+          <EntitySet Name="producto" EntityType="Self.producto" />
+          <EntitySet Name="proveedor" EntityType="Self.proveedor" />
+          <EntitySet Name="rol" EntityType="Self.rol" />
+          <EntitySet Name="solicitud" EntityType="Self.solicitud" />
+          <EntitySet Name="suministro" EntityType="Self.suministro" />
+          <EntitySet Name="tipo_documento" EntityType="Self.tipo_documento" />
+          <EntitySet Name="tipo_evento" EntityType="Self.tipo_evento" />
+          <EntitySet Name="tipo_producto" EntityType="Self.tipo_producto" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <AssociationSet Name="FK_cliente_ToCiudad" Association="Self.FK_cliente_ToCiudad">
+            <End Role="ciudad" EntitySet="ciudad" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lugar_ToCiudad" Association="Self.FK_lugar_ToCiudad">
+            <End Role="ciudad" EntitySet="ciudad" />
+            <End Role="lugar" EntitySet="lugar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paquete_ToClasificacion" Association="Self.FK_paquete_ToClasificacion">
+            <End Role="clasificacion" EntitySet="clasificacion" />
+            <End Role="paquete" EntitySet="paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cliente_ToTipoDocumento" Association="Self.FK_cliente_ToTipoDocumento">
+            <End Role="tipo_documento" EntitySet="tipo_documento" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToCliente" Association="Self.FK_evento_ToCliente">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_empleado_ToEmpleado" Association="Self.FK_detalle_empleado_ToEmpleado">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="detalle_empleado" EntitySet="detalle_empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_empleado_ToEvento" Association="Self.FK_detalle_empleado_ToEvento">
+            <End Role="evento" EntitySet="evento" />
+            <End Role="detalle_empleado" EntitySet="detalle_empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_producto_suministro_ToProducto" Association="Self.FK_detalle_producto_suministro_ToProducto">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="detalle_producto_suministro" EntitySet="detalle_producto_suministro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_producto_suministro_ToSuministro" Association="Self.FK_detalle_producto_suministro_ToSuministro">
+            <End Role="suministro" EntitySet="suministro" />
+            <End Role="detalle_producto_suministro" EntitySet="detalle_producto_suministro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_proveedor_ToProveedor" Association="Self.FK_detalle_proveedor_ToProveedor">
+            <End Role="proveedor" EntitySet="proveedor" />
+            <End Role="detalle_proveedor" EntitySet="detalle_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_proveedor_ToSuministro" Association="Self.FK_detalle_proveedor_ToSuministro">
+            <End Role="suministro" EntitySet="suministro" />
+            <End Role="detalle_proveedor" EntitySet="detalle_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empleado_ToRol" Association="Self.FK_empleado_ToRol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empleado_ToTipoDocumento" Association="Self.FK_empleado_ToTipoDocumento">
+            <End Role="tipo_documento" EntitySet="tipo_documento" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_ToEmpleado" Association="Self.FK_usuario_ToEmpleado">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToEstadoEvento" Association="Self.FK_evento_ToEstadoEvento">
+            <End Role="estado_evento" EntitySet="estado_evento" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToLugar" Association="Self.FK_evento_ToLugar">
+            <End Role="lugar" EntitySet="lugar" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToSolicitud" Association="Self.FK_evento_ToSolicitud">
+            <End Role="solicitud" EntitySet="solicitud" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_evento_ToTipoEvento" Association="Self.FK_evento_ToTipoEvento">
+            <End Role="tipo_evento" EntitySet="tipo_evento" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paquete_ToLugar" Association="Self.FK_paquete_ToLugar">
+            <End Role="lugar" EntitySet="lugar" />
+            <End Role="paquete" EntitySet="paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_ToMedidaProducto" Association="Self.FK_producto_ToMedidaProducto">
+            <End Role="medida_producto" EntitySet="medida_producto" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_suministro_ToMedidaProducto" Association="Self.FK_suministro_ToMedidaProducto">
+            <End Role="medida_producto" EntitySet="medida_producto" />
+            <End Role="suministro" EntitySet="suministro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_ToTipoProducto" Association="Self.FK_producto_ToTipoProducto">
+            <End Role="tipo_producto" EntitySet="tipo_producto" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitud_ToTipoEvento" Association="Self.FK_solicitud_ToTipoEvento">
+            <End Role="tipo_evento" EntitySet="tipo_evento" />
+            <End Role="solicitud" EntitySet="solicitud" />
+          </AssociationSet>
+          <EntitySet Name="pedido" EntityType="ProyectoGradoModel.pedido" />
+          <AssociationSet Name="FK_pedido_ToMedidaProducto" Association="ProyectoGradoModel.FK_pedido_ToMedidaProducto">
+            <End Role="medida_producto" EntitySet="medida_producto" />
+            <End Role="pedido" EntitySet="pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pedido_ToProducto" Association="ProyectoGradoModel.FK_pedido_ToProducto">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="pedido" EntitySet="pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pedido_ToProveedor" Association="ProyectoGradoModel.FK_pedido_ToProveedor">
+            <End Role="proveedor" EntitySet="proveedor" />
+            <End Role="pedido" EntitySet="pedido" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="pedido">
+          <Key>
+            <PropertyRef Name="id_pedido" />
+          </Key>
+          <Property Name="id_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="producto_id_producto" Type="Int32" />
+          <Property Name="proveedor_id_proveedor" Type="Int32" />
+          <Property Name="fecha_pedido" Type="DateTime" Precision="3" />
+          <Property Name="cantidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="id_medida_producto" Type="Int32" />
+          <Property Name="observaciones" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_sugerida" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="medida_producto" Relationship="ProyectoGradoModel.FK_pedido_ToMedidaProducto" FromRole="pedido" ToRole="medida_producto" />
+          <NavigationProperty Name="producto" Relationship="ProyectoGradoModel.FK_pedido_ToProducto" FromRole="pedido" ToRole="producto" />
+          <NavigationProperty Name="proveedor" Relationship="ProyectoGradoModel.FK_pedido_ToProveedor" FromRole="pedido" ToRole="proveedor" />
+        </EntityType>
+        <Association Name="FK_pedido_ToMedidaProducto">
+          <End Type="ProyectoGradoModel.medida_producto" Role="medida_producto" Multiplicity="0..1" />
+          <End Type="ProyectoGradoModel.pedido" Role="pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medida_producto">
+              <PropertyRef Name="id_medida" />
+            </Principal>
+            <Dependent Role="pedido">
+              <PropertyRef Name="id_medida_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pedido_ToProducto">
+          <End Type="ProyectoGradoModel.producto" Role="producto" Multiplicity="0..1" />
+          <End Type="ProyectoGradoModel.pedido" Role="pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="pedido">
+              <PropertyRef Name="producto_id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pedido_ToProveedor">
+          <End Type="ProyectoGradoModel.proveedor" Role="proveedor" Multiplicity="0..1" />
+          <End Type="ProyectoGradoModel.pedido" Role="pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="pedido">
+              <PropertyRef Name="proveedor_id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProyectoGradoModelStoreContainer" CdmEntityContainer="ProyectoGradoEntities">
+          <EntitySetMapping Name="ciudad">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.ciudad">
+              <MappingFragment StoreEntitySet="ciudad">
+                <ScalarProperty Name="Id_ciudad" ColumnName="Id_ciudad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clasificacion">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.clasificacion">
+              <MappingFragment StoreEntitySet="clasificacion">
+                <ScalarProperty Name="id_clasificacion" ColumnName="id_clasificacion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="n_identificacion" ColumnName="n_identificacion" />
+                <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle_empleado">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.detalle_empleado">
+              <MappingFragment StoreEntitySet="detalle_empleado">
+                <ScalarProperty Name="evento_id_evento" ColumnName="evento_id_evento" />
+                <ScalarProperty Name="empleado_id_empleado" ColumnName="empleado_id_empleado" />
+                <ScalarProperty Name="calificacion" ColumnName="calificacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_detalle_empleado" ColumnName="id_detalle_empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle_producto_suministro">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.detalle_producto_suministro">
+              <MappingFragment StoreEntitySet="detalle_producto_suministro">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="id_suministro" ColumnName="id_suministro" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_producto_suministro" ColumnName="id_producto_suministro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle_proveedor">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.detalle_proveedor">
+              <MappingFragment StoreEntitySet="detalle_proveedor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="proveedor_id_proveedor" ColumnName="proveedor_id_proveedor" />
+                <ScalarProperty Name="producto_id_suministro" ColumnName="producto_id_suministro" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empleado">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.empleado">
+              <MappingFragment StoreEntitySet="empleado">
+                <ScalarProperty Name="Id_empleado" ColumnName="Id_empleado" />
+                <ScalarProperty Name="n_identificacion" ColumnName="n_identificacion" />
+                <ScalarProperty Name="id_tipo_documento" ColumnName="id_tipo_documento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="empleado_id_rol" ColumnName="empleado_id_rol" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="barrio" ColumnName="barrio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_evento">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.estado_evento">
+              <MappingFragment StoreEntitySet="estado_evento">
+                <ScalarProperty Name="id_estado_evento" ColumnName="id_estado_evento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="evento">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.evento">
+              <MappingFragment StoreEntitySet="evento">
+                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+                <ScalarProperty Name="solicitud_id_solicitud" ColumnName="solicitud_id_solicitud" />
+                <ScalarProperty Name="cliente_id_cliente" ColumnName="cliente_id_cliente" />
+                <ScalarProperty Name="tipo_evento" ColumnName="tipo_evento" />
+                <ScalarProperty Name="id_lugar" ColumnName="id_lugar" />
+                <ScalarProperty Name="cantidad_personas" ColumnName="cantidad_personas" />
+                <ScalarProperty Name="cantidad_meseros" ColumnName="cantidad_meseros" />
+                <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+                <ScalarProperty Name="hora_fin" ColumnName="hora_fin" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="estado_evento" ColumnName="estado_evento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lugar">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.lugar">
+              <MappingFragment StoreEntitySet="lugar">
+                <ScalarProperty Name="id_lugar" ColumnName="id_lugar" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="cantidad_persona_max" ColumnName="cantidad_persona_max" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="contacto" ColumnName="contacto" />
+                <ScalarProperty Name="telefono_contacto" ColumnName="telefono_contacto" />
+                <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="medida_producto">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.medida_producto">
+              <MappingFragment StoreEntitySet="medida_producto">
+                <ScalarProperty Name="id_medida" ColumnName="id_medida" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paquete">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.paquete">
+              <MappingFragment StoreEntitySet="paquete">
+                <ScalarProperty Name="id_paquete" ColumnName="id_paquete" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="clasificacion_id_clasificacion" ColumnName="clasificacion_id_clasificacion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_lugar" ColumnName="id_lugar" />
+                <ScalarProperty Name="cantidad_personas" ColumnName="cantidad_personas" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="pdf" ColumnName="pdf" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producto">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.producto">
+              <MappingFragment StoreEntitySet="producto">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="cantidad_minima" ColumnName="cantidad_minima" />
+                <ScalarProperty Name="medida" ColumnName="medida" />
+                <ScalarProperty Name="precio_unidad" ColumnName="precio_unidad" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proveedor">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.proveedor">
+              <MappingFragment StoreEntitySet="proveedor">
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="solicitud">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.solicitud">
+              <MappingFragment StoreEntitySet="solicitud">
+                <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+                <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+                <ScalarProperty Name="cantidad_personas" ColumnName="cantidad_personas" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_tipo_evento" ColumnName="id_tipo_evento" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="visto" ColumnName="visto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suministro">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.suministro">
+              <MappingFragment StoreEntitySet="suministro">
+                <ScalarProperty Name="id_suministro" ColumnName="id_suministro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="cantidad_minima" ColumnName="cantidad_minima" />
+                <ScalarProperty Name="medida" ColumnName="medida" />
+                <ScalarProperty Name="precio_unidad" ColumnName="precio_unidad" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_documento">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.tipo_documento">
+              <MappingFragment StoreEntitySet="tipo_documento">
+                <ScalarProperty Name="id_tipo_documento" ColumnName="id_tipo_documento" />
+                <ScalarProperty Name="descripcion_documento" ColumnName="descripcion_documento" />
+                <ScalarProperty Name="abreviatura" ColumnName="abreviatura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_evento">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.tipo_evento">
+              <MappingFragment StoreEntitySet="tipo_evento">
+                <ScalarProperty Name="id_tipo_evento" ColumnName="id_tipo_evento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_producto">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.tipo_producto">
+              <MappingFragment StoreEntitySet="tipo_producto">
+                <ScalarProperty Name="id_tipo_producto" ColumnName="id_tipo_producto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="empleado_id_empleado" ColumnName="empleado_id_empleado" />
+                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pedido">
+            <EntityTypeMapping TypeName="ProyectoGradoModel.pedido">
+              <MappingFragment StoreEntitySet="pedido">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fecha_sugerida" ColumnName="fecha_sugerida" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="id_medida_producto" ColumnName="id_medida_producto" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="fecha_pedido" ColumnName="fecha_pedido" />
+                <ScalarProperty Name="proveedor_id_proveedor" ColumnName="proveedor_id_proveedor" />
+                <ScalarProperty Name="producto_id_producto" ColumnName="producto_id_producto" />
+                <ScalarProperty Name="id_pedido" ColumnName="id_pedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -15,14 +15,11 @@ namespace Utilidades
             try
             {
                 //Pass the filepath and filename to the StreamWriter Constructor
-                StreamWriter sw = new StreamWriter(ConfigurationManager.AppSettings["RutaArchivoLog"].ToString()+"LogSparta.txt");
+                StreamWriter sw = new StreamWriter(ConfigurationManager.AppSettings["RutaArchivoLog"].ToString()+"LogProyectoGrado.txt");
 
                 //Write a line of text
                 sw.WriteLine(mensaje);
-
-                //Write a second line of text
-                sw.WriteLine("From the StreamWriter class");
-
+                
                 //Close the file
                 sw.Close();
             }

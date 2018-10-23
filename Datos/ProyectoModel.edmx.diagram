@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f6491e64956e4749813069285c263349" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="ProyectoGradoModel.ciudad" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.clasificacion" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.cliente" Width="1.5" PointX="3.125" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.detalle_empleado" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.detalle_producto_suministro" Width="1.5" PointX="15.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.detalle_proveedor" Width="1.5" PointX="12.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.empleado" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.estado_evento" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.evento" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.lugar" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.medida_producto" Width="1.5" PointX="7.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.paquete" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.producto" Width="1.5" PointX="13" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.proveedor" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.rol" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.solicitud" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.suministro" Width="1.5" PointX="10" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.tipo_documento" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.tipo_evento" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.tipo_producto" Width="1.5" PointX="10.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.usuario" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_cliente_ToCiudad" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_lugar_ToCiudad" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_paquete_ToClasificacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_cliente_ToTipoDocumento" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_evento_ToCliente" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_detalle_empleado_ToEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_detalle_empleado_ToEvento" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_detalle_producto_suministro_ToProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_detalle_producto_suministro_ToSuministro" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_detalle_proveedor_ToProveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_detalle_proveedor_ToSuministro" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_empleado_ToRol" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_empleado_ToTipoDocumento" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_usuario_ToEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_evento_ToEstadoEvento" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_evento_ToLugar" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_evento_ToSolicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_evento_ToTipoEvento" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_paquete_ToLugar" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_producto_ToMedidaProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_suministro_ToMedidaProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_producto_ToTipoProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_solicitud_ToTipoEvento" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProyectoGradoModel.pedido" Width="1.5" PointX="10" PointY="14.625" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_pedido_ToMedidaProducto" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_pedido_ToProducto" />
+        <AssociationConnector Association="ProyectoGradoModel.FK_pedido_ToProveedor" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
